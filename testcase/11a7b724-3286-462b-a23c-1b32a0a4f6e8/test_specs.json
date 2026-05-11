@@ -1,0 +1,16 @@
+{
+  "name": "Integration - ErrorHandler.handle_error returns correct error mapping",
+  "description": "Checks that ErrorHandler.handle_error maps exceptions to correct error codes and messages.",
+  "test_type": "integration",
+  "input": "Call ErrorHandler.handle_error with RuntimeError containing 'DOCUMENT_RETRIEVAL_ERROR', 'NO_EVIDENCE_FOUND', and a generic Exception",
+  "output": "Dict with correct error_code and error message for each input",
+  "success_criteria": [
+    "DOCUMENT_RETRIEVAL_ERROR maps to correct error_code and message",
+    "NO_EVIDENCE_FOUND maps to correct error_code and fallback message",
+    "Generic Exception maps to AGENT_ERROR and generic error message"
+  ],
+  "error_scenarios": [
+    "ErrorHandler returns incorrect error_code",
+    "ErrorHandler does not log error"
+  ]
+}
