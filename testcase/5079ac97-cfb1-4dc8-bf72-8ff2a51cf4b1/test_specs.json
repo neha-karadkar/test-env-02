@@ -1,0 +1,19 @@
+{
+  "name": "Functional - /query endpoint returns fallback when no evidence found",
+  "description": "Checks that the /query endpoint returns the fallback message when no relevant chunks are found in the knowledge base.",
+  "test_type": "functional",
+  "input": "HTTP POST request to /query endpoint (no body required); knowledge base contains no relevant data",
+  "output": "QueryResponse with success=True, answer set to FALLBACK_RESPONSE, error=None, error_code=None",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response is instance of QueryResponse",
+    "success is True",
+    "answer equals the defined FALLBACK_RESPONSE",
+    "error is None",
+    "error_code is None"
+  ],
+  "error_scenarios": [
+    "Knowledge base returns error instead of empty result",
+    "Unexpected error during chunk retrieval"
+  ]
+}
