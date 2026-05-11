@@ -1,0 +1,15 @@
+{
+  "name": "Integration - AzureAISearchClient.search returns only authorized document chunks",
+  "description": "Verifies that AzureAISearchClient.search returns only chunks from 'Climate.pdf' and raises error if unauthorized documents are present.",
+  "test_type": "integration",
+  "input": "Call AzureAISearchClient.search with a query and filter for 'Climate.pdf', mock search results to include both authorized and unauthorized documents",
+  "output": "List of chunks only from 'Climate.pdf' or RuntimeError if unauthorized document is present",
+  "success_criteria": [
+    "All returned chunks have title 'Climate.pdf'",
+    "If unauthorized document is present, RuntimeError with code 'DOCUMENT_RETRIEVAL_ERROR' is raised"
+  ],
+  "error_scenarios": [
+    "Azure Search misconfiguration",
+    "Unauthorized document chunk is returned"
+  ]
+}
