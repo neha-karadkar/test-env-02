@@ -1,0 +1,18 @@
+{
+  "name": "Integration - ClimateChangeEvidenceAgent.process_query orchestrates retrieval and LLM call",
+  "description": "Tests the end-to-end orchestration of retrieval, LLM call, and response formatting in ClimateChangeEvidenceAgent.process_query.",
+  "test_type": "integration",
+  "input": "Call ClimateChangeEvidenceAgent.process_query with all dependencies properly configured and knowledge base containing relevant data",
+  "output": "Dict with success=True, answer containing evidence, error=None, error_code=None",
+  "success_criteria": [
+    "Returned dict has success=True",
+    "answer is a non-empty string and not the fallback message",
+    "error is None",
+    "error_code is None"
+  ],
+  "error_scenarios": [
+    "ChunkRetriever.retrieve_chunks raises exception",
+    "LLMService.generate_response raises exception",
+    "ErrorHandler.handle_error is invoked"
+  ]
+}
