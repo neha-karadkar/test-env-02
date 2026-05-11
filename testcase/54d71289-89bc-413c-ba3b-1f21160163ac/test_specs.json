@@ -1,0 +1,17 @@
+{
+  "name": "Functional - Validation error returns correct error response",
+  "description": "Ensures that a ValidationError in the /query endpoint returns a 422 response with the correct error message and code.",
+  "test_type": "functional",
+  "input": "Force a ValidationError in the /query endpoint (e.g., by mocking QueryResponse validation failure)",
+  "output": "JSONResponse with status 422, success=False, error='Invalid request format.', error_code='VALIDATION_ERROR'",
+  "success_criteria": [
+    "HTTP status code is 422",
+    "success is False",
+    "error contains 'Invalid request format.'",
+    "error_code is 'VALIDATION_ERROR'"
+  ],
+  "error_scenarios": [
+    "ValidationError is not caught",
+    "Response does not match expected error format"
+  ]
+}
