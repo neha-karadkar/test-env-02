@@ -1,0 +1,15 @@
+{
+  "name": "Functional - /health endpoint returns status ok",
+  "description": "Validates that the /health endpoint returns a 200 response with status 'ok'.",
+  "test_type": "functional",
+  "input": "HTTP GET request to /health endpoint",
+  "output": "JSON response with {'status': 'ok'} and HTTP 200",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response JSON contains key 'status' with value 'ok'"
+  ],
+  "error_scenarios": [
+    "Endpoint returns non-200 status",
+    "Response JSON does not contain expected key or value"
+  ]
+}
